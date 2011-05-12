@@ -1,0 +1,24 @@
+
+Global setup:
+
+ Download and install Git
+  git config --global user.name "Your Name"
+  git config --global user.email jondcruz@yahoo.com
+  Add your public key
+  git config --global github.user username
+  git config --global github.token 1234567890abcdefgh
+        
+
+Next steps:
+
+  mkdir inkling-blog
+  cd inkling-blog
+  git init
+  touch README
+  git add README
+  git commit -m 'first commit'
+  git remote add origin git@github.com:thoughtAddict/inkling-blog.git
+  git push -u origin master
+  
+  
+http://help.github.com/win-set-up-git/  
