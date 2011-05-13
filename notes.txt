@@ -1,24 +1,39 @@
 
-Global setup:
+For Windows, download and install "msysgit".
 
- Download and install Git
-  git config --global user.name "Your Name"
-  git config --global user.email jondcruz@yahoo.com
-  Add your public key
-  git config --global github.user username
-  git config --global github.token 1234567890abcdefgh
-        
+	This will place "Git" executables on your Windows machine.
+	
+	You can then follow the instructions for setting up a ssh Key in order to connect to Github.
 
-Next steps:
+	http://help.github.com/win-set-up-git/ 
+	
+If 
 
-  mkdir inkling-blog
-  cd inkling-blog
-  git init
-  touch README
-  git add README
-  git commit -m 'first commit'
-  git remote add origin git@github.com:thoughtAddict/inkling-blog.git
-  git push -u origin master
+	You're using the Smartgit client, then you can setup your connectivity using that interface.
+
+Else
+
+	Again, assuming Windows, open the "git bash shell".
+
+	Global setup:
+
+	  git config --global user.name "Your Name"
+	  git config --global user.email youremail@emaildomain.com
+	  Add your public key  (see http://help.github.com/win-set-up-git/)
+	  git config --global github.user username
+	  git config --global github.token 1234567890abcdefgh  (retreived from your Github account)
+
+
+	Next steps:
+
+	  mkdir yourGitRepoName
+	  cd yourGitRepoName
+	  git init
+	  touch README
+	  git add README
+	  git commit -m 'first commit'
+	  git remote add origin git@github.com:yourGitUserName/yourGitRepoName.git
+	  git push -u origin master
   
   
-http://help.github.com/win-set-up-git/  
+ 
