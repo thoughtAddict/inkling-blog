@@ -8,16 +8,16 @@ in-kling	 noun
  
 This project will utilize:
 
-....Spring Data Document
-........Controller
-........CRUD Services to hit the Spring "MongoTemplate" class
-........General Services
+    Spring Data Document
+        Controller
+        CRUD Services to hit the Spring "MongoTemplate" class
+        General Services
 
-....MongoDB
-........DataSource
+    MongoDB
+        DataSource
 
-....jQuery
-........front-end 
+    jQuery
+        front-end 
  
  
 With the end-purpose to create a blog that will eventually be run on the CloudFoundry servers.
