@@ -27,7 +27,7 @@ public class InitService {
 
 		logger.debug("Init MongoDB users");
 		
-		int startWithLimit = 100;
+		int startWithLimit = 5;
 		
 		mongoTemplate.dropCollection("posts");
 		
