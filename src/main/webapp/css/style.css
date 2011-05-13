@@ -1,0 +1,137 @@
+/*------------------------------------------------------------*
+**  Global
+**------------------------------------------------------------*/
+body {
+    background: #fff url(../images/bg2.gif); /* Optional */
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 75%;
+    text-align: center; /* IE Fix */
+    margin: 0;
+    color: #666;
+    }
+acronym { cursor: help; border-bottom: 1px dashed #999; }
+a { text-decoration: none; color: #369; border-bottom: 1px dashed #369; }
+a:hover { border-bottom: 1px dashed #49515C; color: #49515C; }
+/*------------------------------------------------------------*
+**  Container
+**------------------------------------------------------------*/    
+#container {
+    margin: 0 auto;
+    width: 80%;
+    background: #FFFFFF url(../images/dot_line.gif) repeat-y 22%;
+    border: 1px solid #ddd;
+    padding: 0 5px;
+    text-align: left; /* Cancel IE Fix */
+    }
+    
+/*------------------------------------------------------------*
+**  Header
+**------------------------------------------------------------*/        
+#header {
+    background: #49515C url(../images/header_right.gif) no-repeat 100% 0;
+    border-bottom: 4px solid #fff;
+    border-top: 5px solid #fff;
+    padding: 28px 30px;
+    }   
+#header h1 {    
+    margin: 0;
+    color: #C6C4C5;
+    font-size: 1.8em;
+    font-weight: normal;
+    cursor: default;
+    }   
+#header h2 {    
+    margin: 5px 0 0 0;
+    color: #8D8E90;
+    font-size: 1.2em;
+    padding-left: 1px;
+    cursor: default;
+    }   
+
+/*------------------------------------------------------------*
+**  Nav
+**------------------------------------------------------------*/
+
+#nav {
+    background: #858F9E; 
+    border-bottom: 4px solid #fff;
+    margin: 0; 
+    padding: 0;
+    height: 2.2em;
+    }
+#nav li {
+    list-style-type: none;
+    display: inline;
+    line-height: 20px;
+    }       
+#nav li a { 
+    text-decoration: none; 
+    color: #ddd;
+    background-color: #858F9E;
+    border-right: 4px solid #fff; 
+    border-bottom: 0;
+    padding: 3px 8px;
+    font-size: 1em;
+    float: left;
+    font-weight: bold;
+    }
+#nav li a:hover { background-color: #6B7687; }
+#nav li a.on { background-color: #49515C; color: #C6C4C5; }
+
+/*------------------------------------------------------------*
+**  Side Bar
+**------------------------------------------------------------*/
+#sidebar {
+    float: left;
+    width: 20%;
+    position: relative;
+    line-height: 20px; 
+    word-spacing: 2px;  
+    }
+#sidebar div { background: #fff url(../images/para_bg.jpg) repeat-x; }    
+/*------------------------------------------------------------*
+**  Side Bar & Content
+**------------------------------------------------------------*/
+#sidebar h3, 
+#content h3 { 
+    font-size: 1.1em; 
+    color: #49515C; 
+    margin: 0 10px 0 0; 
+    cursor: default;
+    }
+#content div, 
+#sidebar div { 
+    padding: 1px 0 10px 0;  
+    border-top: 1px solid #ddd; 
+    padding: 10px;
+    }   
+/*------------------------------------------------------------*
+**  Content
+**------------------------------------------------------------*/
+#content {
+    float: right;
+    width: 77%;
+    position: relative;
+    margin-left: 15px;
+    line-height: 20px; 
+    text-align: justify; 
+    word-spacing: 2px;  
+    }   
+#content div { background: #fff url(../images/para_bg.jpg) repeat-x; }    
+/*------------------------------------------------------------*
+**  Footer
+**------------------------------------------------------------*/
+#footer {
+    background: #49515C url(../images/header_right.gif) no-repeat 100% 0;
+    border-bottom: 5px solid #fff;
+    border-top: 10px solid #fff;
+    text-align: center; 
+    color: #fff;
+    font-size: 0.8em;
+    padding: 10px;
+    line-height: 16px;
+    clear: both;
+    }
+    
+#footer a { text-decoration: none; color: #A2AFBF; border-bottom: 1px dashed #A2AFBF; }
+#footer a:hover { border-bottom: 1px dashed #fff; color: #fff; }
