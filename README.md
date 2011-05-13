@@ -8,7 +8,7 @@ in-kling (noun)
  
  
  
-This project will utilize:
+This project will utilize...
 
     Spring Data Document
         Controller
@@ -25,7 +25,7 @@ This project will utilize:
     	IDE
  
  
-With the end-purpose to create a blog that will eventually be run on the CloudFoundry servers.  (Although the code can be run on any JEE server.)
+...with the end-purpose to create a blog that will eventually be run on the CloudFoundry servers.  (Although the code can be run on any JEE server.)
 
 Resources and Credits
 ---
