@@ -12,6 +12,7 @@ import org.springframework.data.document.mongodb.query.Update;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.thoughtaddict.mongoblog.javabean.BlogCategory;
 import com.thoughtaddict.mongoblog.javabean.BlogPost;
 
 import static org.springframework.data.document.mongodb.query.Criteria.where;
@@ -29,14 +30,55 @@ public class BlogService {
 	@Resource(name="mongoTemplate")
 	private MongoTemplate mongoTemplate;
 
-	public List<BlogPost> getAll() {
+	public List<BlogPost> getAllPosts() {
 		
-		logger.debug("Retrieving all posts");
 		Query query = new Query(where("postId").exists(true));
 		List<BlogPost> posts = mongoTemplate.find(query, BlogPost.class);
 
 		return posts;
 	}
+	
+	public List<BlogCategory> getAllCategories() {
+
+		// To Do: Find a way to do this with Mongo command, or spring data method
+		
+		List<BlogCategory> blogCategoryList = new ArrayList<BlogCategory>();
+		Map<String,BlogCategory> holderMap = new HashMap<String,BlogCategory>();
+		
+		Query query = new Query(where("postId").exists(true));
+		List<BlogPost> posts = mongoTemplate.find(query, BlogPost.class);
+		
+		for ( BlogPost post : posts ) {
+			
+			List<String> categories = post.getCategories();
+			
+			if ( null != categories && categories.size() > 0 ) {
+				
+				for ( String categoryName : categories ) {
+				
+					BlogCategory currBlogCat = holderMap.get(categoryName);
+					
+					if ( null == currBlogCat ) {
+						currBlogCat = new BlogCategory();
+						currBlogCat.setCategoryName(categoryName);
+						currBlogCat.setNumberPosts(1);
+						holderMap.put(categoryName, currBlogCat);
+					} else {						
+						currBlogCat.setNumberPosts( currBlogCat.getNumberPosts() + 1 );
+					}					
+				}
+			}			
+		}
+		
+		Iterator iterator = holderMap.keySet().iterator();
+		while( iterator.hasNext() ) {			
+			String key = (String) iterator.next();
+			BlogCategory blogCategory = holderMap.get(key);
+			blogCategoryList.add(blogCategory);
+		}
+
+		return blogCategoryList;
+	}	
 
 	public BlogPost get(String postId) {
 		
