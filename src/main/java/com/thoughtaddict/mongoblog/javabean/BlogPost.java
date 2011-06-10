@@ -1,6 +1,7 @@
 package com.thoughtaddict.mongoblog.javabean;
 
 import java.io.Serializable;
+import java.util.*;
 
 
 public class BlogPost implements Serializable {
@@ -12,6 +13,7 @@ public class BlogPost implements Serializable {
 	private String dateCreated;
 	private String title;
 	private String content;
+	private List<String> categories = new ArrayList<String>();
 	
 	public String getPostId() {
 		return postId;
@@ -43,5 +45,13 @@ public class BlogPost implements Serializable {
 	public void setContent(String content) {
 		this.content = content;
 	}
-	
+	public List<String> getCategories() {
+		return categories;
+	}
+	public void setCategories(List<String> categories) {
+		this.categories = categories;
+	}
+	public void addCategories(String category) {
+		this.categories.add(category);
+	}
 }
