@@ -24,7 +24,6 @@ public class MainController {
 
 	@RequestMapping(value = "/posts", method = RequestMethod.GET)
 	public String getPosts(Model model) {
-
 		return "postspage";
 	}
 

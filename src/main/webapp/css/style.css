@@ -83,6 +83,10 @@ a:hover { border-bottom: 1px dashed #49515C; color: #49515C; }
 #nav li a:hover { background-color: #6B7687; }
 #nav li a.on { background-color: #49515C; color: #C6C4C5; }
 
+.navMessage {
+	float: right;	
+}
+
 /*------------------------------------------------------------*
 **  Side Bar
 **------------------------------------------------------------*/
@@ -93,7 +97,50 @@ a:hover { border-bottom: 1px dashed #49515C; color: #49515C; }
     line-height: 20px; 
     word-spacing: 2px;  
     }
-#sidebar div { background: #fff url(../images/para_bg.jpg) repeat-x; }
+    
+#categoryList { 
+	background: #fff url(../images/para_bg.jpg) repeat-x; 
+    padding: 1px 0 10px 0;  
+    border-top: 1px solid #ddd; 
+    padding: 10px;	
+}
+
+#archiveList { 
+	background: #fff url(../images/para_bg.jpg) repeat-x; 
+    padding: 1px 0 10px 0;  
+    border-top: 1px solid #ddd; 
+    padding: 10px;	
+}
+
+#linksList { 
+	background: #fff url(../images/para_bg.jpg) repeat-x; 
+}
+
+.categoryDIV { 
+	margin: 0 0 0 10px;
+}
+
+.archiveDIV { 
+	margin: 0 0 0 10px;
+}
+
+.categoryLabel {
+	margin: 0 0 0 4px;
+	cursor: pointer;
+}
+
+.categoryLabelAll {
+	cursor: pointer;
+}
+
+.archiveLabel {
+	margin: 0 0 0 4px;
+	cursor: pointer;
+}
+
+.archiveLabelAll {
+	cursor: pointer;
+}
 
 /*------------------------------------------------------------*
 **  Side Bar 
@@ -101,15 +148,9 @@ a:hover { border-bottom: 1px dashed #49515C; color: #49515C; }
 #sidebar h3 { 
     font-size: 1.1em; 
     color: #49515C; 
-    margin: 0 10px 0 0; 
+    margin: 0 10px 5px 0; 
     cursor: default;
-    }
- 
-#sidebar div { 
-    padding: 1px 0 10px 0;  
-    border-top: 1px solid #ddd; 
-    padding: 10px;
-    }   
+    } 
     
 /*------------------------------------------------------------*
 **  Content
@@ -159,6 +200,14 @@ a:hover { border-bottom: 1px dashed #49515C; color: #49515C; }
 	margin: 0 5px 20px 0;	
 	cursor: pointer;
 }
+
+.emptyFilter {
+	background: #fff url(../images/para_bg.jpg) repeat-x; 
+	height: 115px;
+	margin: 0 0 15px 0;
+	padding: 20px 0 0 20px;
+}
+
 
 /*------------------------------------------------------------*
 **  Footer

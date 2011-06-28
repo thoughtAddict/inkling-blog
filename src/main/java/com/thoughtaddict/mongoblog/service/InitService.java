@@ -26,6 +26,7 @@ public class InitService {
 	private void init() {
 
 		logger.debug("Init MongoDB users");
+		logger.debug("=======================================================");
 		
 		int startWithLimit = 100;
 		
@@ -62,6 +63,7 @@ public class InitService {
 		    p.addCategories(categoryMap.get(category2));
 			mongoTemplate.insert("posts", p);
 		}
+		logger.debug("======================================================= " + startWithLimit);
 	}
 	
 	public static String randomString(int radixValue) {

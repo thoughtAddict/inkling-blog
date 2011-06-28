@@ -14,8 +14,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-import com.thoughtaddict.mongoblog.javabean.BlogCategory;
-import com.thoughtaddict.mongoblog.javabean.BlogPost;
+
+import com.thoughtaddict.mongoblog.javabean.*;
 import com.thoughtaddict.mongoblog.service.BlogService;
 
 
@@ -55,5 +55,19 @@ public class JsonController {
 		model.addAttribute("categories", jsonOutput);
 
 		return "json/categories";
-	}		
+	}	
+	
+	@RequestMapping(value = "/archives", method = RequestMethod.GET)
+	public String getArchives(Model model) {
+
+		List<BlogArchive> archives = blogService.getAllArchives();
+		
+		Gson gson = new Gson();
+		Type listType = new TypeToken<List<BlogArchive>>() {}.getType();
+		String jsonOutput = gson.toJson(archives, listType);
+		
+		model.addAttribute("archives", jsonOutput);
+
+		return "json/archives";
+	}	
 }

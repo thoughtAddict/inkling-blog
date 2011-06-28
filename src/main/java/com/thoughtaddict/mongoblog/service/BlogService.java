@@ -12,8 +12,8 @@ import org.springframework.data.document.mongodb.query.Update;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.thoughtaddict.mongoblog.javabean.BlogCategory;
-import com.thoughtaddict.mongoblog.javabean.BlogPost;
+import com.thoughtaddict.mongoblog.javabean.*;
+import com.thoughtaddict.mongoblog.util.DateUtil;
 
 import static org.springframework.data.document.mongodb.query.Criteria.where;
 
@@ -45,8 +45,7 @@ public class BlogService {
 		List<BlogCategory> blogCategoryList = new ArrayList<BlogCategory>();
 		Map<String,BlogCategory> holderMap = new HashMap<String,BlogCategory>();
 		
-		Query query = new Query(where("postId").exists(true));
-		List<BlogPost> posts = mongoTemplate.find(query, BlogPost.class);
+		List<BlogPost> posts = getAllPosts();
 		
 		for ( BlogPost post : posts ) {
 			
@@ -80,6 +79,48 @@ public class BlogService {
 		return blogCategoryList;
 	}	
 
+	public List<BlogArchive> getAllArchives() {
+
+		// To Do: Find a way to do this with Mongo command, or spring data method
+		
+		List<BlogArchive> blogArchiveList = new ArrayList<BlogArchive>();
+		Map<Integer,BlogArchive> holderMap = new HashMap<Integer,BlogArchive>();
+		
+		List<BlogPost> posts = getAllPosts();
+		
+		for ( BlogPost post : posts ) {
+			
+			String dateCreated = post.getDateCreated();
+			String monthCreated = DateUtil.getMonthName( dateCreated.substring(0, 2) );
+			String yearCreated = dateCreated.substring(6, 10);
+			String archiveName = monthCreated + " " + yearCreated;
+			Integer archiveOrder = new Integer(yearCreated + dateCreated.substring(0, 2));
+	
+			BlogArchive currBlogArch = holderMap.get(archiveOrder);
+			
+			if ( null == currBlogArch ) {
+				currBlogArch = new BlogArchive();
+				currBlogArch.setArchiveName(archiveName);
+				currBlogArch.setArchiveOrder(archiveOrder);
+				currBlogArch.setNumberPosts(1);
+				currBlogArch.setArchiveMonth(dateCreated.substring(0, 2));
+				currBlogArch.setArchiveYear(yearCreated);
+				holderMap.put(archiveOrder, currBlogArch);
+			} else {						
+				currBlogArch.setNumberPosts( currBlogArch.getNumberPosts() + 1 );
+			}		
+		}
+		
+		Iterator iterator = holderMap.keySet().iterator();
+		while( iterator.hasNext() ) {			
+			Integer key = (Integer) iterator.next();
+			BlogArchive blogArchive = holderMap.get(key);
+			blogArchiveList.add(blogArchive);
+		}
+
+		return blogArchiveList;
+	}	
+	
 	public BlogPost get(String postId) {
 		
 		logger.debug("Retrieving an existing post.");
